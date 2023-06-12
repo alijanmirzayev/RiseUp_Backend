@@ -9,6 +9,14 @@ export const Quote = {
             console.log('Quote.add', error)
         }
     },
+    getAll: async (req, res) => {
+        try {
+            const data = await quoteModel.find()
+            return res.status(200).send(data)
+        } catch (error) {
+            console.log('Quote.getAll', error)
+        }
+    },
     getAllQoutesByCategoryId: async (req, res) => {
         try {
             const { categoryId } = req.params
