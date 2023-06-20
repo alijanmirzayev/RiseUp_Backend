@@ -7,6 +7,6 @@ r.get('/', Author.getAll);
 r.get('/:id', Author.getById);
 r.post('/', Author.add);
 r.put('/:id', Author.updateById)
-r.delete('/', Author.deleteById)
+r.delete('/:id', Author.deleteById)
 
 export default r
