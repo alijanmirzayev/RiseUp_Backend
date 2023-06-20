@@ -28,4 +28,23 @@ export const Author = {
             return res.status(500).send(error)
         }
     },
+    updateById: async (req, res) => {
+        try {
+            const { id } = req.params
+            const validationData = authorValidation(req.body)
+            const data = await authorModel.findByIdAndUpdate(id, validationData)
+            return res.status(201).send(data)
+        } catch (error) {
+            return res.status(500).send(error)
+        }
+    },
+    deleteById: async (req, res) => {
+        try {
+            const { id } = req.params
+            const data = await authorModel.findByIdAndDelete(id)
+            return res.status(201).send(`${id} Deleted!`)
+        } catch (error) {
+            return res.status(500).send(error)
+        }
+    },
 }
